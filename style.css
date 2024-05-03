@@ -1,0 +1,28 @@
+body {
+  background-color: black;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+header {
+  color: aliceblue;
+}
+#mainGame {
+  display: flex;
+  border: 1px solid white;
+  height: 40%;
+  width: 40%;
+}
+.test {
+  border: 1px solid springgreen;
+  display: grid;
+  align-items: center;
+  width: 20%;
+  height: 20%;
+  background-color: antiquewhite;
+}
+/* make some boxes different */
