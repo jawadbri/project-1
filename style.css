@@ -12,17 +12,21 @@ header {
   color: aliceblue;
 }
 #mainGame {
-  display: flex;
+  display: grid;
   border: 1px solid white;
   height: 40%;
   width: 40%;
+  grid-template-columns: 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
 }
 .test {
   border: 1px solid springgreen;
   display: grid;
   align-items: center;
-  width: 20%;
-  height: 20%;
+  grid-row-start: 5;
+  grid-column-start: 3;
+  width: 100%;
+  height: 100%;
   background-color: antiquewhite;
 }
 /* make some boxes different */

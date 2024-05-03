@@ -35,4 +35,4 @@
   [] make it works
   [] make it random
   [x] lose my mind...
-  ![main minue](https://uploads.disquscdn.com/images/0cf799540fddf1d2e9e20a03c1a93c11ba7714c18bffede9af365970be465199.png)
+  ![main menu](https://uploads.disquscdn.com/images/0cf799540fddf1d2e9e20a03c1a93c11ba7714c18bffede9af365970be465199.png)
