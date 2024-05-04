@@ -2,6 +2,7 @@ let board = document.querySelector('#mainGame')
 let sides = document.querySelectorAll('.cell')
 let refresh = document.querySelector('#refresh')
 let results = document.querySelector('.results')
+let health = document.querySelector('.hp')
 // make a fuction to randomize the ships locations here
 // let side = document
 //   .querySelectorAll('.test')
@@ -19,6 +20,18 @@ sides.forEach((side, index) => {
     } else {
       side.style.backgroundColor = 'red'
       results.innerText = 'you need to get gud'
+      // make every click remove one point at a time
+      let i = health.innerText
+      // for (i = 3; i > 0; i--) {
+      //   while (i > 2) {
+      //     health.innerText = '2'
+      //   }
+      //   if (i > 1) {
+      //     health.innerText = '1'
+      //   } else {
+      //     health.innerText = '0'
+      //   }
+      // }
     }
   })
 })

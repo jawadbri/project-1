@@ -24,10 +24,13 @@ header {
   background-color: navajowhite;
 }
 h1 {
-  color: aliceblue;
+  color: navajowhite;
 }
 .results {
-  color: bisque;
+  color: navajowhite;
+}
+.hp {
+  color: navajowhite;
 }
 /* .res {
   border: 1px;
