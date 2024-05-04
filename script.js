@@ -1,7 +1,7 @@
 let board = document.querySelector('#mainGame')
 let sides = document.querySelectorAll('.cell')
 let refresh = document.querySelector('#refresh')
-
+let results = document.querySelector('.results')
 // make a fuction to randomize the ships locations here
 // let side = document
 //   .querySelectorAll('.test')
@@ -15,9 +15,10 @@ sides.forEach((side, index) => {
   side.addEventListener('click', () => {
     if (side.classList.contains('shipClass')) {
       side.style.backgroundColor = 'green'
+      results.innerText = 'u got one, happy?'
     } else {
       side.style.backgroundColor = 'red'
-      console.log('u missed')
+      results.innerText = 'you need to get gud'
     }
   })
 })
@@ -27,5 +28,8 @@ refresh.addEventListener('click', () => {
   // change this to make the refresh button chnage the ship placese and refresh the life counter and hints (if we add hints to begin with) // sides.forEach((side) => (
   //   // make it add class to divs with the index of [i=i+5] || [i=i+1] 2 times for 1 ship, 3 for another, 4 for the biggest ship
   // ))
-  // make it rechange the color back to it's original color
+  sides.forEach((side) => {
+    side.style.backgroundColor = ''
+    results.innerText = ''
+  })
 })
