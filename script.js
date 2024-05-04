@@ -1,7 +1,6 @@
 let mainGame = document.querySelector('#mainGame')
 let sides = document.querySelectorAll('.test')
 let refresh = document.querySelector('.refresh')
-// create a
 
 // make a fuction to randomize the ships locations here
 // let side = document
@@ -10,12 +9,14 @@ let refresh = document.querySelector('.refresh')
 
 // make the click event function work proparly by checking the inside of the sides not the mainGame and see if there's a ship or not
 // if there's a ship, make the box change color, if not, remove one life
-mainGame.addEventListener('click', () => {
-  if (side == 'e') {
-    console.log('basinka')
-  } else {
-    console.log('somethin aint right')
-  }
+
+// make a fuction that adds a new class (randomly)to [i = i + 5] to use the columns and [i = i + 1 ] for rows
+sides.forEach((side, index) => {
+  side.addEventListener('click', () => {
+    if (side.classList.contains('shipClass')) {
+      console.log('you hit a ship')
+    }
+  })
 })
 // add a small box to the side of the board for hints
 // you get 3 hints that showes you a 2x2 with one ship part inside of them
