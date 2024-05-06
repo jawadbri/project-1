@@ -2,12 +2,23 @@ let board = document.querySelector('#mainGame')
 let sides = document.querySelectorAll('.cell')
 let refresh = document.querySelector('#refresh')
 let results = document.querySelector('.results')
+let ships = document.querySelectorAll('.shipClass')
 let health = document.querySelector('.hp')
+let rng = Math.floor(Math.random() * sides.length)
 // make a fuction to randomize the ships locations here
 // let side = document
 //   .querySelectorAll('.test')
 //   .forEach((side) => (side.innerHTML = 'e'))
+const shipPlace = () => {
+  sides.forEach((side) => {
+    let randomValue = Math.random()
+    if (randomValue < 0.41) {
+      side.classList.add('shipClass')
+    }
+  })
+}
 
+shipPlace()
 // make the click event function work proparly by checking the inside of the sides not the mainGame and see if there's a ship or not
 // if there's a ship, make the box change color, if not, remove one life
 
@@ -35,14 +46,12 @@ sides.forEach((side, index) => {
     }
   })
 })
-// add a small box to the side of the board for hints
-// you get 3 hints that showes you a 2x2 with one ship part inside of them
+
 refresh.addEventListener('click', () => {
-  // change this to make the refresh button chnage the ship placese and refresh the life counter and hints (if we add hints to begin with) // sides.forEach((side) => (
-  //   // make it add class to divs with the index of [i=i+5] || [i=i+1] 2 times for 1 ship, 3 for another, 4 for the biggest ship
-  // ))
   sides.forEach((side) => {
     side.style.backgroundColor = ''
     results.innerText = ''
+    side.classList.remove('shipClass')
   })
+  shipPlace()
 })

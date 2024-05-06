@@ -45,3 +45,9 @@ h1 {
   background-color: aqua;
 }
 /* make some boxes different */
+.cell {
+  background-color: blue;
+}
+.shipClass {
+  background-color: brown;
+}
