@@ -5,6 +5,7 @@ let results = document.querySelector('.results')
 let ships = document.querySelectorAll('.shipClass')
 let health = document.querySelector('.hp')
 let rng = Math.floor(Math.random() * sides.length)
+let presses = false
 // make a fuction to randomize the ships locations here
 // let side = document
 //   .querySelectorAll('.test')
@@ -23,21 +24,24 @@ shipPlace()
 // if there's a ship, make the box change color, if not, remove one life
 
 // make a fuction that adds a new class (randomly)to [i = i + 5] to use the columns or (||) [i = i + 1 ] for rows. with the conditon of not going over the size of the box. so no (i === 4 && 9 && 14 && 19 && 24) for rows and (i === 20 && 21 && 22 && 23 && 24)
-sides.forEach((side) => {
-  side.addEventListener('click', () => {
-    if (side.classList.contains('shipClass')) {
-      side.style.backgroundColor = 'green'
-      results.innerText = 'u got one, happy?'
-      console.log('ss')
-    } else {
-      side.style.backgroundColor = 'red'
-      results.innerText = 'you need to get gud'
-      console.log('S')
-      // make every click remove one point at a time
-    }
-  })
-})
+// Attach the click event listener to each side element
 
+const handleClickOnce = (event) => {
+  const side = event.target
+  if (side.classList.contains('shipClass')) {
+    side.style.backgroundColor = 'green'
+    results.innerText = 'You got one, happy?'
+    console.log('f')
+  } else {
+    side.style.backgroundColor = 'red'
+    results.innerText = 'You need to get gud'
+    console.log('S')
+  }
+  side.removeEventListener('click', handleClickOnce)
+}
+sides.forEach((side) => {
+  side.addEventListener('click', handleClickOnce)
+})
 refresh.addEventListener('click', () => {
   sides.forEach((side) => {
     side.style.backgroundColor = ''
