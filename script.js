@@ -12,7 +12,7 @@ let rng = Math.floor(Math.random() * sides.length)
 const shipPlace = () => {
   sides.forEach((side) => {
     let randomValue = Math.random()
-    if (randomValue < 0.41) {
+    if (randomValue < 0.6) {
       side.classList.add('shipClass')
     }
   })
@@ -23,26 +23,17 @@ shipPlace()
 // if there's a ship, make the box change color, if not, remove one life
 
 // make a fuction that adds a new class (randomly)to [i = i + 5] to use the columns or (||) [i = i + 1 ] for rows. with the conditon of not going over the size of the box. so no (i === 4 && 9 && 14 && 19 && 24) for rows and (i === 20 && 21 && 22 && 23 && 24)
-sides.forEach((side, index) => {
+sides.forEach((side) => {
   side.addEventListener('click', () => {
     if (side.classList.contains('shipClass')) {
       side.style.backgroundColor = 'green'
       results.innerText = 'u got one, happy?'
+      console.log('ss')
     } else {
       side.style.backgroundColor = 'red'
       results.innerText = 'you need to get gud'
+      console.log('S')
       // make every click remove one point at a time
-      let i = health.innerText
-      // for (i = 3; i > 0; i--) {
-      //   while (i > 2) {
-      //     health.innerText = '2'
-      //   }
-      //   if (i > 1) {
-      //     health.innerText = '1'
-      //   } else {
-      //     health.innerText = '0'
-      //   }
-      // }
     }
   })
 })

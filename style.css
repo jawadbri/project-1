@@ -11,10 +11,11 @@ header {
 #mainGame {
   display: grid;
   border: 1px solid white;
-  height: 40%;
-  width: 40%;
+  height: 50%;
+  width: 50%;
   grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20% 20%;
+  overflow: hidden;
 }
 .cell {
   border: 1px solid rebeccapurple;
