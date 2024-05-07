@@ -5,7 +5,8 @@ let results = document.querySelector('.results')
 let ships = document.querySelectorAll('.shipClass')
 let health = document.querySelector('.hp')
 let rng = Math.floor(Math.random() * sides.length)
-let presses = false
+let score = document.querySelector('.score')
+score.innerText = 0
 // make a fuction to randomize the ships locations here
 // let side = document
 //   .querySelectorAll('.test')
@@ -13,7 +14,7 @@ let presses = false
 const shipPlace = () => {
   sides.forEach((side) => {
     let randomValue = Math.random()
-    if (randomValue < 0.6) {
+    if (randomValue < 0.57) {
       side.classList.add('shipClass')
     }
   })
@@ -31,17 +32,24 @@ const handleClickOnce = (event) => {
   if (side.classList.contains('shipClass')) {
     side.style.backgroundColor = 'green'
     results.innerText = 'You got one, happy?'
-    console.log('f')
+    score.innerText = parseInt(score.innerText) + 10
   } else {
     side.style.backgroundColor = 'red'
     results.innerText = 'You need to get gud'
-    console.log('S')
+    if (score.innerText === 0) {
+      score.innerText = 'why'
+    } else {
+      score.innerText = parseInt(score.innerText) - 10
+    }
   }
   side.removeEventListener('click', handleClickOnce)
 }
-sides.forEach((side) => {
-  side.addEventListener('click', handleClickOnce)
-})
+const clickIt = () => {
+  sides.forEach((side) => {
+    side.addEventListener('click', handleClickOnce)
+  })
+}
+clickIt()
 refresh.addEventListener('click', () => {
   sides.forEach((side) => {
     side.style.backgroundColor = ''
@@ -49,4 +57,5 @@ refresh.addEventListener('click', () => {
     side.classList.remove('shipClass')
   })
   shipPlace()
+  clickIt()
 })

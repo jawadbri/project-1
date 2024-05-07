@@ -22,11 +22,11 @@ header {
   overflow: hidden;
 }
 .cell {
-  border: 1px solid rebeccapurple;
+  border: 1px solid wheat;
   display: grid;
   width: 100%;
   height: 100%;
-  background-color: navajowhite;
+  background-color: cadetblue;
 }
 .footer {
   display: flex;
@@ -36,22 +36,20 @@ header {
   height: auto;
 }
 h1 {
-  color: navajowhite;
+  color: wheat;
 }
 .results {
-  color: navajowhite;
+  color: wheat;
 }
 .score {
-  color: aqua;
+  color: wheat;
 }
 
 #refresh {
-  background-color: aqua;
+  background-color: wheat;
 }
 /* make some boxes different */
-.cell {
-  background-color: blue;
-}
+
 .shipClass {
-  background-color: brown;
+  background-color: black;
 }
