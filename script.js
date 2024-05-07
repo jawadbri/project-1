@@ -30,11 +30,13 @@ shipPlace()
 // make a fuction that adds a new class (randomly)to [i = i + 5] to use the columns or (||) [i = i + 1 ] for rows. with the conditon of not going over the size of the box. so no (i === 4 && 9 && 14 && 19 && 24) for rows and (i === 20 && 21 && 22 && 23 && 24)
 
 // Attach the click event listener to each side element to check if it's a hit or miss. hit give you points and miss detuct them. you can't get - points so you lose life points
+
 let bommbedShips = 0
-let clickListenerEnabled = true // Flag to track whether clickIt event listener is enabled
+// to make the first play correct insted of ""
+let finished = true
 
 const clickedHandle = (event) => {
-  if (!clickListenerEnabled) return // Check if click listener is enabled
+  if (!finished) return // Check if click listener is on to play
   const side = event.target
   if (side.classList.contains('shipClass')) {
     side.style.backgroundColor = 'green'
@@ -47,23 +49,27 @@ const clickedHandle = (event) => {
       sides.forEach((side) => {
         side.style.backgroundColor = 'yellow'
       })
-      // Disable click listener
-      clickListenerEnabled = false
+      // Disable click listener to stop the game to not lose points
+      finished = false
     }
   } else {
     side.style.backgroundColor = 'red'
     results.innerText = 'You need to get gud'
     if (score.innerText <= 0) {
       while (score.innerText <= 0) {
+        // lose life when u miss
         hp -= 1
         life.innerText = 'you have ' + hp + ' left'
         if (hp <= 0) {
+          // when life is lost
           score.innerHTML = 'you lost'
+          // remove the el to endecate that you lost
         }
         break
       }
     } else {
       if (score.innerText > 0) {
+        // remove point when u miss
         score.innerText = parseInt(score.innerText) - 10
       } else {
         score.innerText = 'something broke'
@@ -73,9 +79,9 @@ const clickedHandle = (event) => {
   }
   side.removeEventListener('click', clickedHandle)
 }
-
+// Check if click listener is enabled
 const clickIt = () => {
-  if (!clickListenerEnabled) return // Check if click listener is enabled
+  if (!finished) return
   sides.forEach((side) => {
     side.addEventListener('click', clickedHandle)
   })
@@ -91,7 +97,7 @@ const nexLevel = () => {
   })
 
   if (hp <= 0) {
-    // Reset the ship sides clicked count
+    // Reset the number of boombed ships
     refresh.removeEventListener('click', refreshHandler)
   } else {
     bommbedShips = 0
@@ -103,7 +109,7 @@ const nexLevel = () => {
 // bring the el again
 const refreshHandler = () => {
   if (hp > 0) {
-    clickListenerEnabled = true
+    finished = true
     nexLevel()
   }
 }
