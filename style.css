@@ -50,6 +50,9 @@ h1 {
 }
 /* make some boxes different */
 
+.life {
+  color: wheat;
+}
 .shipClass {
   background-color: black;
 }
