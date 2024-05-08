@@ -86,6 +86,7 @@ const clickIt = () => {
     side.addEventListener('click', clickedHandle)
   })
 }
+clickIt()
 
 const nexLevel = () => {
   sides.forEach((side) => {
