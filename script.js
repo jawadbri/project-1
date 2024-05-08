@@ -7,9 +7,10 @@ let life = document.querySelector('.life')
 let rng = Math.floor(Math.random() * sides.length)
 let score = document.querySelector('.score')
 let hp = 3
+let win = document.querySelector('.winningTheRound')
 life.innerText = 'you have ' + hp + ' left'
 score.innerText = 0
-
+win.innerHTML = 0
 // make a fuction to randomize the ships locations here
 // let side = document
 //   .querySelectorAll('.test')
@@ -42,12 +43,13 @@ const clickedHandle = (event) => {
     side.style.backgroundColor = 'green'
     results.innerText = 'You got one, happy?'
     score.innerText = parseInt(score.innerText) + 10
-
-    bommbedShips++
+    win.innerText =
+      document.querySelectorAll('.shipClass').length - 1 - bommbedShips++
 
     if (bommbedShips === document.querySelectorAll('.shipClass').length) {
       sides.forEach((side) => {
-        side.style.backgroundColor = 'yellow'
+        win.style.color = 'yellow'
+        win.innerHTML = 'congrats, you won'
       })
       // Disable click listener to stop the game to not lose points
       finished = false
@@ -64,6 +66,7 @@ const clickedHandle = (event) => {
           // when life is lost
           score.innerHTML = 'you lost'
           // remove the el to endecate that you lost
+          sides.removeEventListener('click', clickedHandle)
         }
         break
       }
