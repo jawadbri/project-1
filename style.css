@@ -26,7 +26,8 @@ header {
   display: grid;
   width: 100%;
   height: 100%;
-  background-color: cadetblue;
+  background-color: transparent;
+  transition: transform 0.1s;
 }
 .footer {
   display: flex;
@@ -53,6 +54,18 @@ h1 {
 .life {
   color: wheat;
 }
+button:hover {
+  cursor: pointer;
+  background-color: aquamarine;
+  transition: 250ms;
+  transform: scale(1.1);
+}
+
+.cell:hover {
+  transition: 330ms;
+  cursor: pointer;
+  box-shadow: 0 0 4vh hotpink;
+}
 .shipClass {
-  background-color: black;
+  background-color: blanchedalmond;
 }

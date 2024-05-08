@@ -1,8 +1,19 @@
 body {
-  background-color: black;
+  background-color: wheat;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-h1 {
-  color: aliceblue;
+h3 {
+  color: cadetblue;
+}
+a {
+  height: 2vh;
+}
+button:hover {
+  cursor: pointer;
+  background-color: aquamarine;
+  transition: 250ms;
 }

@@ -96,7 +96,6 @@ const nexLevel = () => {
     results.innerText = 'hit or miss you ask?'
     life.innerText = 'you have ' + hp + ' left'
   })
-
   if (hp <= 0) {
     // Reset the number of boombed ships
     refresh.removeEventListener('click', refreshHandler)
