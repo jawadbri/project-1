@@ -37,7 +37,7 @@ let bommbedShips = 0
 // to make the first play correct insted of ""
 let finished = true
 
-const clickedHandle = (event) => {
+const scorePoints = (event) => {
   if (!finished) return // Check if click listener is on to play
   const side = event.target
   if (side.classList.contains('shipClass')) {
@@ -84,18 +84,18 @@ const clickedHandle = (event) => {
       }
     }
   }
-  side.removeEventListener('click', clickedHandle)
+  side.removeEventListener('click', scorePoints)
 }
 // Check if click listener is enabled
 const stopClicking = () => {
   if (!finished) return
   sides.forEach((side) => {
-    side.addEventListener('click', clickedHandle)
+    side.addEventListener('click', scorePoints)
   })
 }
 stopClicking()
 
-const nexLevel = () => {
+const refreshAndEnd = () => {
   sides.forEach((side) => {
     side.style.backgroundColor = ''
     results.innerText = ''
@@ -105,22 +105,24 @@ const nexLevel = () => {
     win.innerText = document.querySelectorAll('.shipClass').length
   })
   if (hp <= 0) {
-    // // Reset the number of boombed ships
+    // // to check for game over
     finished = false
   } else {
+    // when no game over accures. continue the game
     bommbedShips = 0
     shipPlace()
     stopClicking()
   }
 }
 
-// bring the el again
+// bring the el again after it's removed
 const refreshHandler = () => {
   if (hp > 0) {
     finished = true
-    nexLevel()
+    refreshAndEnd()
   }
 }
+// make function to reset like an f5 insted of refresh the board for the next level
 const reset = () => {
   if (hp === 0) {
     finished = true
