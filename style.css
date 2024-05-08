@@ -57,20 +57,23 @@ h1 {
 }
 button:hover {
   cursor: pointer;
-
-  background-color: aquamarine;
-  transition: 250ms;
+  box-shadow: 0 0 3vh blueviolet;
+  background-color: greenyellow;
+  transition: 330ms;
 }
 
 .cell:hover {
   transition: 330ms;
   cursor: pointer;
-  box-shadow: 0 0 4vh hotpink;
+  box-shadow: 0 0 5vh hotpink;
   transform: scale(0.7);
 }
-.shipClass {
-  background-color: aqua;
-}
+
 .winningTheRound {
   color: yellow;
+}
+#refresh:hover {
+  cursor: pointer;
+  box-shadow: 0 0 3vh blueviolet;
+  background-color: greenyellow;
 }

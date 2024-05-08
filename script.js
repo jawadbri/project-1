@@ -8,9 +8,10 @@ let rng = Math.floor(Math.random() * sides.length)
 let score = document.querySelector('.score')
 let hp = 3
 let win = document.querySelector('.winningTheRound')
-life.innerText = 'you have ' + hp + ' left'
+life.innerText = 'you have ' + hp + ' life /s left'
 score.innerText = 0
 win.innerHTML = 0
+let restart = document.querySelector('.restart')
 // make a fuction to randomize the ships locations here
 // let side = document
 //   .querySelectorAll('.test')
@@ -61,12 +62,17 @@ const clickedHandle = (event) => {
       while (score.innerText <= 0) {
         // lose life when u miss
         hp -= 1
-        life.innerText = 'you have ' + hp + ' left'
+        life.innerText = 'you have ' + hp + ' life/s sleft'
         if (hp <= 0) {
+          results.innerText = 'ouch...'
+          results.style.color = 'honeydew'
           // when life is lost
-          score.innerHTML = 'you lost'
+          // score.innerHTML = 'you lost'
+          score.style.color = 'hotpink'
+          life.style.color = 'red'
+          life.innerText = 'you have no lifes. GG'
           // remove the el to endecate that you lost
-          sides.removeEventListener('click', clickedHandle)
+          finished = false
         }
         break
       }
@@ -75,21 +81,19 @@ const clickedHandle = (event) => {
         // remove point when u miss
         score.innerText = parseInt(score.innerText) - 10
       } else {
-        score.innerText = 'something broke'
-        console.log('something went wrong')
       }
     }
   }
   side.removeEventListener('click', clickedHandle)
 }
 // Check if click listener is enabled
-const clickIt = () => {
+const stopClicking = () => {
   if (!finished) return
   sides.forEach((side) => {
     side.addEventListener('click', clickedHandle)
   })
 }
-clickIt()
+stopClicking()
 
 const nexLevel = () => {
   sides.forEach((side) => {
@@ -97,15 +101,16 @@ const nexLevel = () => {
     results.innerText = ''
     side.classList.remove('shipClass')
     results.innerText = 'hit or miss you ask?'
-    life.innerText = 'you have ' + hp + ' left'
+    life.innerText = 'you have ' + hp + ' life/s left'
+    win.innerText = document.querySelectorAll('.shipClass').length
   })
   if (hp <= 0) {
-    // Reset the number of boombed ships
-    refresh.removeEventListener('click', refreshHandler)
+    // // Reset the number of boombed ships
+    finished = false
   } else {
     bommbedShips = 0
     shipPlace()
-    clickIt()
+    stopClicking()
   }
 }
 
@@ -116,5 +121,21 @@ const refreshHandler = () => {
     nexLevel()
   }
 }
-
+const reset = () => {
+  if (hp === 0) {
+    finished = true
+    bommbedShips = 0
+    sides.forEach((side) => {
+      side.style.backgroundColor = ''
+      side.classList.remove('shipClass')
+    })
+    hp = 3
+    results.innerText = 'hit or miss you ask?'
+    life.innerText = 'you have ' + hp + ' life/s left'
+    life.style.color = ''
+    shipPlace()
+    stopClicking()
+  }
+}
+restart.addEventListener('click', reset)
 refresh.addEventListener('click', refreshHandler)
