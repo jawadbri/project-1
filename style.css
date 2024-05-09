@@ -78,6 +78,9 @@ button:hover {
   background-color: greenyellow;
 }
 
-.winningTheRound {
+/* .shipClass {
+  background-color: red;
+} */
+.score {
   color: hotpink;
 }
